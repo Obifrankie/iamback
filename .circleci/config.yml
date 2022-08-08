@@ -17,4 +17,5 @@ workflow:
     jobs:
       - hello_world
       - say_Hello
-        requires: hello_world
+          requires:
+            - hello_world
