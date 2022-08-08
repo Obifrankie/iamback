@@ -4,13 +4,21 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "hello world" >> hello
+      - run:
+        name: echo "hello world" >> hello
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - hello
 
   say_Hello:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run: echo $MY_NAME
+      - attach_to_workspace:
+          at: ~/
+      - run: cat ~/hello
 
 workflows:
   new_workflow:
