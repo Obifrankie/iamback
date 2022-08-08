@@ -4,13 +4,13 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      run: echo "hello world" >> hello
+      - run: echo "hello world" >> hello
 
   say_Hello:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      run: cat hello
+      - run: echo $MY_NAME
 
 workflow:
   new_workflow:
