@@ -1,0 +1,20 @@
+version: 2.1
+jobs: 
+  hello_World: 
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      run: echo "hello world" >> hello
+
+  say_Hello:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      run: cat hello 
+
+workflow:
+  new_workflow:
+    jobs:
+      - hello_world
+      - say_Hello
+        requires: hello_world
