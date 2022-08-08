@@ -4,10 +4,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run:
-        name: make it work
-        command: |
-          echo "hello world" >> ~/hello
+      - run: echo "hello world" >> ~/hello
       - persist_to_workspace:
           root: ~/
           paths:
